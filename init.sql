@@ -1,0 +1,1 @@
+CREATE TABLE peer_list (time int(11), ip_address varchar(15), geohash varchar(20));
