@@ -29,14 +29,14 @@ torrents = json.loads(s.get(server_address + "/api/torrents").text)
 torrents = torrents['torrents']
 
 # #Logging into mariadb server / Enter your mariadb credentials here
-# mydb = mariadb.connect(
-#           host="mariadb",
-#           port=3306,
-#           user="root",
-#           password="123",
-#           database="",
-#           autocommit=True
-# )
+mydb = mariadb.connect(
+          host="mariadb-svc.default.svc.cluster.local",
+          port=3306,
+          user="ip2location",
+          password="123456",
+          database="ip2location",
+          autocommit=True
+)
 
 current_time = str(int(time.time()))
 
