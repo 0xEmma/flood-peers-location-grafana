@@ -5,7 +5,7 @@ import socket, struct
 import time
 import pygeohash
 import IP2Location, os
-# import mariadb
+import mariadb
 
 #To convert the IP address in xxx.xxx.xxx.xxx to a decimal number
 def ip2long(ip):
