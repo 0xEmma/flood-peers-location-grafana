@@ -9,4 +9,4 @@ ADD init.sql /config/initdb.d/
 ADD . /app
 WORKDIR /app
 
-CMD ["python", "/app/qbittorrent_peers_location_grafana.py"]
+CMD ["python3", "/app/qbittorrent_peers_location_grafana.py"]
