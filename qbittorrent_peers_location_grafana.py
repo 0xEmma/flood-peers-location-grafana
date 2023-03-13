@@ -31,11 +31,11 @@ torrents = torrents['torrents']
 
 # #Logging into mariadb server / Enter your mariadb credentials here
 mydb = mariadb.connect(
-          host="mariadb",
+          host="mariadb.default.svc.cluster.local",
           port=3306,
           user="root",
           password="123",
-          database="",
+          database="ip2location",
           autocommit=True
 )
 
