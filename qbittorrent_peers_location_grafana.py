@@ -5,7 +5,7 @@ import socket, struct
 import time
 import pygeohash
 import IP2Location, os
-import mariadb
+# import mariadb
 
 #To convert the IP address in xxx.xxx.xxx.xxx to a decimal number
 def ip2long(ip):
@@ -15,7 +15,6 @@ def ip2long(ip):
 
 #qbittorrent credentials
 server_ip = os.environ['flood_server']
-
 server_address = "http://" + server_ip
 
 s = requests.Session()
@@ -30,14 +29,14 @@ torrents = json.loads(s.get(server_address + "/api/torrents").text)
 torrents = torrents['torrents']
 
 # #Logging into mariadb server / Enter your mariadb credentials here
-mydb = mariadb.connect(
-          host="mariadb",
-          port=3306,
-          user="root",
-          password="123",
-          database="",
-          autocommit=True
-)
+# mydb = mariadb.connect(
+#           host="mariadb",
+#           port=3306,
+#           user="root",
+#           password="123",
+#           database="",
+#           autocommit=True
+# )
 
 current_time = str(int(time.time()))
 
@@ -54,7 +53,7 @@ for torrent in torrents:
         record = database.get_all(ip)
         print(record.latitude)
         print(record.longitude)
-        geohash = pygeohash.encode(record.latitude, record.longitude)
+        geohash = pygeohash.encode(float(record.latitude), float(record.longitude))
         if record.latitude == 0 and record.longitude == 0:
             continue #Sometimes (especially in public trackers) some IP's in the private IP space show up as peers. This should filter those.
         mycursor = mydb.cursor()
