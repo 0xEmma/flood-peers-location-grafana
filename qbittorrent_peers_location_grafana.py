@@ -34,7 +34,7 @@ mydb = mariadb.connect(
           host="mariadb-svc.default.svc.cluster.local",
           port=3306,
           user="ip2location",
-          password="123",
+          password="123456",
           database="ip2location",
           autocommit=True
 )
